@@ -1,1 +1,62 @@
+OUTLINE
+
+I. Introduction
+
+* Brief introduction to HTML content sections
+* Introduce the three elements:
+
+  * `<article>`
+  * `<section>`
+  * `<aside>`
+* Explain that these elements help organize webpage content
+
+II. `<article>` Element
+
+* Definition of `<article>`
+* Purpose: used for standalone or independent content
+* Examples:
+
+  * News articles
+  * Blog posts
+  * Forum posts
+* Show a simple `<article>` code example
+
+III. `<section>` Element
+
+* Definition of `<section>`
+* Purpose: groups related content under a specific topic
+* Examples:
+
+  * About Us
+  * Services
+  * School information
+* Show a simple `<section>` code example
+
+IV. `<aside>` Element
+
+* Definition of `<aside>`
+* Purpose: contains additional or supporting information
+* Examples:
+
+  * Related posts
+  * Tips
+  * Additional information
+* Show a simple `<aside>` code example
+
+V. Comparison of the Three Elements
+
+* `<article>` → standalone content
+* `<section>` → related/grouped content
+* `<aside>` → additional/supporting content
+
+VI. Combined Example
+
+* Show how `<article>`, `<section>`, and `<aside>` can be used together
+* Briefly explain the role of each element in the example
+
+VII. Conclusion
+
+* Review the purpose of the three elements
+* Explain why semantic HTML helps organize webpages
+* End with a short thank-you
 
