@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>  
-    <link rel="stylesheet" href="menu.css">
+    <title>yori.Homes</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; text-align: center; }
+        nav { background-color: #fcc200; display: flex; justify-content: flex-start; padding: 0 20px; }
+        nav a { color: #ffffff; text-decoration: none; padding: 14px 20px; font-size: 16px; }
+        nav a:hover, nav a.active { background-color: #b78727; border-bottom: 3px solid #ffcc00; }
+        .container { max-width: 800px; margin: 60px auto 0 auto; padding: 20px; }
+        h1 { font-size: 36px; margin-bottom: 20px; font-weight: bold; }
+        h2 { font-size: 26px; font-weight: normal; }
+    </style>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="Main Navigation"> 
-        <ul class="nav-list"> 
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> 
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li> 
-            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li> 
-            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li> 
-            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html"  class="active">Contact</a>
     </nav>
-    <center>
-        <h1 class = "myFont">Contact</h1>
-        <h2 class = "myFont">Contact page</h2>
-    </center>
+
+	
+
+    <div class="container">
+		<h1>Contact</h1>
+    <p>feel free to contact</p>
+      
+    </div>
+
 </body>
 </html>
