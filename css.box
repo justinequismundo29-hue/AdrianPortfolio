@@ -1,0 +1,154 @@
+/* Universal reset - Tinatanggal ang default margin/padding at ginagawang kasama ang padding sa laki ng element */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #feffed; /* Kulay ng background ng buong page */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Uri ng font na gagamitin */
+    min-height: 100vh; /* Sineset ang taas ng body sa buong taas ng screen */
+}
+
+/* 1. Main Navbar Header Container - Bar sa taas na naglalaman ng menu */
+.navbar {
+    background-color: #C21E56; /* Red na background para sa buong navbar */
+    width: 100%; /* Sinasakop ang buong lapad ng screen */
+}
+
+/* 2. Navigation List - Layout ng mga menu buttons */
+.nav-list {
+    display: flex; /* Ginagawang Flexbox para madaling i-align ang mga menu items */
+    flex-direction: row; /* Iniaayos ang mga menu items mula kaliwa pakanan */
+    justify-content: flex-start; /* Pinapanatili ang mga items sa kaliwang bahagi */
+    align-items: center; /* Pantay-pantay sa gitna nang patayo (vertically) */
+    list-style-type: none; /* Tinatanggal ang default na bullet points ng list */
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Individual Nav Links - Style ng bawat mismong link sa navbar */
+.nav-link {
+    display: block; /* Ginagawang clickable ang buong espasyo ng box */
+    padding: 14px 20px; /* Espasyo sa loob ng button */
+    color: #ffeaf3; /* Kulay ng text */
+    text-decoration: none; /* Tinatanggal ang salungguhit (underline) ng link */
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px; /* Sukat ng font ng menu links */
+    font-weight: 600; /* Ginagawang semi-bold ang text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth na transition kapag nag-hover */
+}
+
+/* Style kapag hindi pa nabibisita ang link */
+.nav-link:link {
+    color: #FFFFFF;
+}
+
+/* Style kapag nabisita na ang link */
+.nav-link:visited {
+    color: #E0E0E0;
+}
+
+/* Style kapag itinapat ang mouse sa link o kapag active/kasalukuyang page */
+.nav-link:hover, .nav-link.active {
+    background-color: #F2C265; /* Nag-iiba ang kulay ng background */
+    color: #FFFFFF; /* Puti ang kulay ng text kapag nakatapat ang mouse */
+}
+
+/* Style kapag tinututukan gamit ang keyboard (Tab button) */
+.nav-link:focus {
+    outline: 4px solid #fe005d; /* Dilaw na border outline para sa accessibility */
+}
+
+/* 4. Grid Styles - Compact na container para sa mga portfolio items */
+.grid-container {
+    display: grid; /* Ginagawang CSS Grid ang layout */
+    max-width: 1100px; /* Nilalagyan ng max-width para hindi masyadong kumalat */
+    margin: 2rem auto; /* Sinisentro ang buong grid sa gitna ng screen */
+    grid-template-columns: repeat(4, 1fr); /* Hina-hati sa 4 na pantay-pantay na kolum */
+    grid-template-rows: repeat(3, 55px); /* Ginagawang mas payat/mababa ang bawat row (55px na lang) */
+    gap: 0.75rem; /* Mas maliit na espasyo sa pagitan ng mga grid box */
+    padding: 0 1.5rem; /* Espasyo sa gilid para hindi dumikit sa screen edges */
+}
+
+/* Style para sa bawat kahon (box) sa loob ng grid - mas pinaliit ang padding */
+.box {
+    background-color:#C21E56; /* Complementary background color */
+    color: #fff7cd; /* Kulay ng text */
+    font-size: 0.8rem; /* Mas maliit na font para sakto sa mas payat na kahon */
+    font-weight: 600; /* Kapal ng text */
+    padding: 0.25rem 0.5rem; /* Pinaliit na padding sa loob ng kahon */
+    text-decoration: none; /* Tinatanggal ang underline dahil link ito */
+    display: flex; /* Ginagawang flex para ma-center ang text sa loob */
+    align-items: center; /* Pinapa-pantay ang text sa gitna nang patayo */
+    justify-content: center; /* Pinapa-pantay ang text sa gitna nang pahiga */
+    text-align: center; /* Naka-center ang text kapag higit sa isang linya */
+    border-radius: 6px; /* Kurbada sa mga sulok */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Banayad na shadow */
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth na animation sa hover */
+}
+
+/* Style kapag itinapat ang mouse sa grid box */
+.box:hover {
+    background-color: #f4fba8; /* Nag-iiba ang kulay para tumugma sa navbar hover */
+    color: #ffffff; /* Ginagawang puti ang text */
+    transform: translateY(-2px); /* Bahagyang umaangat ang kahon kapag tinatapatan ng mouse */
+}
+
+.footer {
+    background-color: #C21E56; 
+    color: #ffd3ea;        
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 8%;
+    height: 190px;
+}
+
+.footer-text {
+    width: 50%;
+}
+
+.footer-text p {
+    margin: 10px 15px;
+    font-size: 12px;
+}
+
+.footer-social {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #de7c96;           
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    color: #edf7b1;           
+}
+
+.footer-bottom {
+    background-color: #6a112f; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
