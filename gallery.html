@@ -147,4 +147,82 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB4fqSO5YjS8a6xiqzlsVb4kJ3j6VfLcNH0twQo-EAEU4AW1KWkxj2PKVB&s=10" alt="Second Model">
       </div>
       <div class="slide">
-        <img src="
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxeo8qwi9zx5pXoZGLOTbi-lSjlGyDxfd1NWZONtGnrmu-1EplrS7b7Ado&s=10" alt="Third Model">
+      </div>
+      <div class="slide">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCJZgKSYKSdfRNk-KP4T_08c7TcHhK23V2nvClB-wsOOZVIV74PXOENW7-&s=10" alt="Fourth Model">
+      </div>
+
+      <button class="prev" aria-label="Previous slide">❮</button>
+      <button class="next" aria-label="Next slide">❯</button>
+    </div>
+
+    <!-- Caption and Dots safely underneath the picture -->
+    <div class="carousel-footer">
+      <div class="caption">First Model</div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+  <script>
+    $(function () {
+      const $slides = $(".slide");
+      const $dots = $(".dots");
+      const $caption = $(".carousel-footer .caption");
+      const total = $slides.length;
+      let current = 0;
+      let timer;
+
+      for (let i = 0; i < total; i++) {
+        $dots.append(`<button class="dot" data-index="${i}" aria-label="Go to slide ${i+1}"></button>`);
+      }
+      const $dot = $(".dot");
+
+      function showSlide(index) {
+        $slides.stop(true, true).fadeOut(500).removeClass("active");
+        const $currentSlide = $slides.eq(index).stop(true, true).fadeIn(500).addClass("active");
+        $dot.removeClass("active").eq(index).addClass("active");
+        
+        // Update caption dynamically based on image alt text
+        $caption.text($currentSlide.find("img").attr("alt"));
+        
+        current = index;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(() => {
+          showSlide((current + 1) % total);
+        }, 4000);
+      }
+      function stopAutoplay() {
+        clearInterval(timer);
+      }
+
+      $slides.hide().eq(0).show();
+      $dot.eq(0).addClass("active");
+      $caption.text($slides.eq(0).find("img").attr("alt"));
+      startAutoplay();
+
+      $(".next").on("click", () => {
+        showSlide((current + 1) % total);
+      });
+      $(".prev").on("click", () => {
+        showSlide((current - 1 + total) % total);
+      });
+
+      $dots.on("click", ".dot", function () {
+        showSlide(parseInt($(this).data("index")));
+      });
+
+      $("#carousel-container").on("mouseenter", stopAutoplay).on("mouseleave", startAutoplay);
+
+      $(document).on("keydown", (e) => {
+        if (e.key === "ArrowRight") showSlide((current + 1) % total);
+        if (e.key === "ArrowLeft") showSlide((current - 1 + total) % total);
+      });
+    });
+  </script>
+</body>
+</html>
