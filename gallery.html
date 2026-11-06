@@ -1,36 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yori.Homes</title>
-    <style>
-        body { margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; text-align: center; }
-        nav { background-color: #fcc200; display: flex; justify-content: flex-start; padding: 0 20px; }
-        nav a { color: #ffffff; text-decoration: none; padding: 14px 20px; font-size: 16px; }
-        nav a:hover, nav a.active { background-color: #b78727; border-bottom: 3px solid #ffcc00; }
-        .container { max-width: 800px; margin: 60px auto 0 auto; padding: 20px; }
-        h1 { font-size: 36px; margin-bottom: 20px; font-weight: bold; }
-        h2 { font-size: 26px; font-weight: normal; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="menu.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+    }
+    h1.myFont {
+      text-align: center;
+      margin: 20px 0;
+      color: #333;
+    }
+    #carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #ddd;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      font-size: 1rem;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.8);
+      border: none;
+      font-size: 1.5rem;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    .prev:hover, .next:hover {
+      background: #fff;
+    }
+    .dots {
+      position: absolute;
+      bottom: 45px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      border: none;
+    }
+    .dot.active {
+      background: #fff;
+      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    }
+  </style>
 </head>
 <body>
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <ul class="nav-list">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+      <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html"   class="active">Gallery</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <h1 class="myFont">My Big Bikes</h1>
 
-	
-
-    <div class="container">
-		<h1>Gallery</h1>
-    <p>My photos, projects, and visual works will be displayed here.</p>
-      
+  <div id="carousel">
+    <div class="slide active">
+      <img src="https://nerostickers.com/cdn/shop/files/IMG_0158.webp?v=1752434823" alt="First Model">
+      <div class="caption">First Model</div>
+    </div>
+    <div class="slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB4fqSO5YjS8a6xiqzlsVb4kJ3j6VfLcNH0twQo-EAEU4AW1KWkxj2PKVB&s=10" alt="Second Model">
+      <div class="caption">Second Model</div>
+    </div>
+    <div class="slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxeo8qwi9zx5pXoZGLOTbi-lSjlGyDxfd1NWZONtGnrmu-1EplrS7b7Ado&s=10" alt="Third Model">
+      <div class="caption">Third Model</div>
+    </div>
+    <div class="slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCJZgKSYKSdfRNk-KP4T_08c7TcHhK23V2nvClB-wsOOZVIV74PXOENW7-&s=10" alt="Fourth Model">
+      <div class="caption">Fourth Model</div>
     </div>
 
+    <button class="prev" aria-label="Previous slide">❮</button>
+    <button class="next" aria-label="Next slide">❯</button>
+
+    <div class="dots"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+  <script>
+    $(function () {
+      const $slides = $(".slide");
+      const $dots = $(".dots");
+      const total = $slides.length;
+      let current = 0;
+      let timer;
+
+      for (let i = 0; i < total; i++) {
+        $dots.append(`<button class="dot" data-index="${i}" aria-label="Go to slide ${i+1}"></button>`);
+      }
+      const $dot = $(".dot");
+
+      function showSlide(index) {
+        $slides.stop(true, true).fadeOut(500).removeClass("active");
+        $slides.eq(index).stop(true, true).fadeIn(500).addClass("active");
+        $dot.removeClass("active").eq(index).addClass("active");
+        current = index;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(() => {
+          showSlide((current + 1) % total);
+        }, 4000);
+      }
+      function stopAutoplay() {
+        clearInterval(timer);
+      }
+
+      $slides.hide().eq(0).show();
+      $dot.eq(0).addClass("active");
+      startAutoplay();
+
+      $(".next").on("click", () => {
+        showSlide((current + 1) % total);
+      });
+      $(".prev").on("click", () => {
+        showSlide((current - 1 + total) % total);
+      });
+
+      $dots.on("click", ".dot", function () {
+        showSlide(parseInt($(this).data("index")));
+      });
+
+      $("#carousel").on("mouseenter", stopAutoplay).on("mouseleave", startAutoplay);
+
+      $(document).on("keydown", (e) => {
+        if (e.key === "ArrowRight") showSlide((current + 1) % total);
+        if (e.key === "ArrowLeft") showSlide((current - 1 + total) % total);
+      });
+    });
+  </script>
 </body>
 </html>
