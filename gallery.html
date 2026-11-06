@@ -11,12 +11,12 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Times New Roman', Times, serif; /* Matched to index font */
-      background: #ffffff; /* Clean white background */
+      font-family: 'Times New Roman', Times, serif;
+      background: #ffffff;
       text-align: center;
     }
     
-    /* Navigation style matching your index page */
+    /* Navigation style */
     nav { 
       background-color: #fcc200; 
       display: flex; 
@@ -41,22 +41,27 @@
       font-size: 36px;
     }
 
-    #carousel {
-      position: relative;
+    /* Outer container holding both the picture and the bottom info bar */
+    #carousel-container {
       max-width: 800px;
       margin: 0 auto;
+      border: 2px solid #fcc200;
+      background: #000000;
+    }
+
+    #carousel {
+      position: relative;
+      width: 100%;
       aspect-ratio: 16 / 9;
       overflow: hidden;
       background: #000000;
-      border: 2px solid #fcc200;
     }
     .slide {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      /* Leave room at the bottom for captions and dots so they don't cover the image */
-      height: calc(100% - 75px);
+      height: 100%;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
@@ -66,22 +71,43 @@
     .slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Changed from cover to contain so the whole bike is visible */
-      background: #000;
+      object-fit: cover; /* Keeps the photo full size */
+    }
+
+    /* Footer section placed completely UNDER the picture */
+    .carousel-footer {
+      background: #111111;
+      padding: 15px;
+      text-align: center;
+      border-top: 2px solid #fcc200;
     }
     .caption {
-      position: absolute;
-      bottom: 35px; /* Positioned right above the dots */
-      left: 0;
-      width: 100%;
-      padding: 8px;
-      background: rgba(0,0,0,0.75);
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      font-weight: bold;
     }
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      border: none;
+    }
+    .dot.active {
+      background: #fcc200;
+      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    }
+
     .prev, .next {
       position: absolute;
-      top: 43%; /* Adjusted to center relative to the image area */
+      top: 50%;
       transform: translateY(-50%);
       background: rgba(255,255,255,0.8);
       border: none;
@@ -93,35 +119,14 @@
     .prev { left: 10px; }
     .next { right: 10px; }
     .prev:hover, .next:hover {
-      background: #fcc200; /* Gold color on hover */
-      color: #000000;
-    }
-    .dots {
-      position: absolute;
-      bottom: 8px; /* Placed cleanly at the very bottom bar */
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 10;
-    }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      border: none;
-    }
-    .dot.active {
       background: #fcc200;
-      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+      color: #000000;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation matching your Index page -->
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -132,84 +137,14 @@
 
   <h1 class="myFont">My Big Bikes</h1>
 
-  <div id="carousel">
-    <div class="slide active">
-      <img src="https://nerostickers.com/cdn/shop/files/IMG_0158.webp?v=1752434823" alt="First Model">
-      <div class="caption">First Model</div>
-    </div>
-    <div class="slide">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB4fqSO5YjS8a6xiqzlsVb4kJ3j6VfLcNH0twQo-EAEU4AW1KWkxj2PKVB&s=10" alt="Second Model">
-      <div class="caption">Second Model</div>
-    </div>
-    <div class="slide">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxeo8qwi9zx5pXoZGLOTbi-lSjlGyDxfd1NWZONtGnrmu-1EplrS7b7Ado&s=10" alt="Third Model">
-      <div class="caption">Third Model</div>
-    </div>
-    <div class="slide">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCJZgKSYKSdfRNk-KP4T_08c7TcHhK23V2nvClB-wsOOZVIV74PXOENW7-&s=10" alt="Fourth Model">
-      <div class="caption">Fourth Model</div>
-    </div>
-
-    <button class="prev" aria-label="Previous slide">❮</button>
-    <button class="next" aria-label="Next slide">❯</button>
-
-    <div class="dots"></div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-  <script>
-    $(function () {
-      const $slides = $(".slide");
-      const $dots = $(".dots");
-      const total = $slides.length;
-      let current = 0;
-      let timer;
-
-      for (let i = 0; i < total; i++) {
-        $dots.append(`<button class="dot" data-index="${i}" aria-label="Go to slide ${i+1}"></button>`);
-      }
-      const $dot = $(".dot");
-
-      function showSlide(index) {
-        $slides.stop(true, true).fadeOut(500).removeClass("active");
-        $slides.eq(index).stop(true, true).fadeIn(500).addClass("active");
-        $dot.removeClass("active").eq(index).addClass("active");
-        current = index;
-      }
-
-      function startAutoplay() {
-        stopAutoplay();
-        timer = setInterval(() => {
-          showSlide((current + 1) % total);
-        }, 4000);
-      }
-      function stopAutoplay() {
-        clearInterval(timer);
-      }
-
-      $slides.hide().eq(0).show();
-      $dot.eq(0).addClass("active");
-      $startAutoplay = startAutoplay();
-      startAutoplay();
-
-      $(".next").on("click", () => {
-        showSlide((current + 1) % total);
-      });
-      $(".prev").on("click", () => {
-        showSlide((current - 1 + total) % total);
-      });
-
-      $dots.on("click", ".dot", function () {
-        showSlide(parseInt($(this).data("index")));
-      });
-
-      $("#carousel").on("mouseenter", stopAutoplay).on("mouseleave", startAutoplay);
-
-      $(document).on("keydown", (e) => {
-        if (e.key === "ArrowRight") showSlide((current + 1) % total);
-        if (e.key === "ArrowLeft") showSlide((current - 1 + total) % total);
-      });
-    });
-  </script>
-</body>
-</html>
+  <!-- Carousel Container with Picture on top and Info Bar UNDERneath -->
+  <div id="carousel-container">
+    <div id="carousel">
+      <div class="slide active">
+        <img src="https://nerostickers.com/cdn/shop/files/IMG_0158.webp?v=1752434823" alt="First Model">
+      </div>
+      <div class="slide">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB4fqSO5YjS8a6xiqzlsVb4kJ3j6VfLcNH0twQo-EAEU4AW1KWkxj2PKVB&s=10" alt="Second Model">
+      </div>
+      <div class="slide">
+        <img src="
