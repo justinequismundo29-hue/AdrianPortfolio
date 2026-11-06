@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery</title>
-  <link rel="stylesheet" href="menu.css">
   <style>
     * {
       margin: 0;
@@ -13,23 +12,43 @@
     }
     body {
       font-family: 'Times New Roman', Times, serif; /* Matched to index font */
-      background: #ffffff; /* Same background color as index */
-      padding: 20px;
+      background: #ffffff; /* Clean white background */
       text-align: center;
     }
+    
+    /* Navigation style matching your index page */
+    nav { 
+      background-color: #fcc200; 
+      display: flex; 
+      justify-content: flex-start; 
+      padding: 0 20px; 
+    }
+    nav a { 
+      color: #ffffff; 
+      text-decoration: none; 
+      padding: 14px 20px; 
+      font-size: 16px; 
+    }
+    nav a:hover, nav a.active { 
+      background-color: #b78727; 
+      border-bottom: 3px solid #ffcc00; 
+    }
+
     h1.myFont {
       text-align: center;
-      margin: 20px 0;
-      color: #b78727; /* Darker gold for visibility on light background */
+      margin: 30px 0 20px 0;
+      color: #333333;
+      font-size: 36px;
     }
+
     #carousel {
       position: relative;
       max-width: 800px;
       margin: 0 auto;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      background: #ffffff;
-      border: 2px solid #fcc200; /* Optional border to match theme */
+      background: #000000;
+      border: 2px solid #fcc200;
     }
     .slide {
       position: absolute;
@@ -72,8 +91,8 @@
     .prev { left: 10px; }
     .next { right: 10px; }
     .prev:hover, .next:hover {
-      background: #b78727;
-      color: #ffffff;
+      background: #fcc200; /* Gold color on hover */
+      color: #000000;
     }
     .dots {
       position: absolute;
@@ -93,20 +112,20 @@
       border: none;
     }
     .dot.active {
-      background: white;
+      background: #fcc200;
       box-shadow: 0 0 4px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
-  <nav class="navbar" role="navigation" aria-label="Main Navigation">
-    <ul class="nav-list">
-      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-      <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
-      <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-    </ul>
+
+  <!-- Navigation matching your Index page -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
   <h1 class="myFont">My Big Bikes</h1>
