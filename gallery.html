@@ -12,14 +12,15 @@
       box-sizing: border-box;
     }
     body {
-      font-family: sans-serif;
-      background: #b78727;
+      font-family: 'Times New Roman', Times, serif; /* Matched to index font */
+      background: #ffffff; /* Same background color as index */
       padding: 20px;
+      text-align: center;
     }
     h1.myFont {
       text-align: center;
       margin: 20px 0;
-      color: #fcc200;
+      color: #b78727; /* Darker gold for visibility on light background */
     }
     #carousel {
       position: relative;
@@ -27,7 +28,8 @@
       margin: 0 auto;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      background: #b78727;
+      background: #ffffff;
+      border: 2px solid #fcc200; /* Optional border to match theme */
     }
     .slide {
       position: absolute;
@@ -53,7 +55,7 @@
       width: 100%;
       padding: 12px;
       background: rgba(0,0,0,0.65);
-      color: #fffff;
+      color: #ffffff;
       font-size: 1rem;
     }
     .prev, .next {
@@ -71,6 +73,7 @@
     .next { right: 10px; }
     .prev:hover, .next:hover {
       background: #b78727;
+      color: #ffffff;
     }
     .dots {
       position: absolute;
