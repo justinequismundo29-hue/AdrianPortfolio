@@ -12,7 +12,7 @@ body{
 
 .box{
     background-color: #EFBF04;
-    background-image: linear-gradient(#EFBF04,#420019);
+    background-image: linear-gradient(#EFBF04, #EFBF04);
     font-size:1rem;
     display: block;
     padding:0.5rem;
