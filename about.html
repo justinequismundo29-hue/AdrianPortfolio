@@ -3,32 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian Files</title>
+    <title>Adrian Files - About</title>
+    
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+    
     <style>
         body { margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; text-align: center; }
         nav { background-color: #fcc200; display: flex; justify-content: flex-start; padding: 0 20px; }
         nav a { color: #ffffff; text-decoration: none; padding: 14px 20px; font-size: 16px; }
         nav a:hover, nav a.active { background-color: #b78727; border-bottom: 3px solid #ffcc00; }
         .container { max-width: 800px; margin: 60px auto 0 auto; padding: 20px; }
-        h1 { font-size: 36px; margin-bottom: 20px; font-weight: bold; }
+        h1 { font-size: 36px; margin-bottom: 30px; font-weight: bold; }
         h2 { font-size: 26px; font-weight: normal; }
+        
+        /* Optional: style the accordion better */
+        #accordion { text-align: left; margin-top: 20px; }
     </style>
+    
+    <!-- jQuery first, then jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+    
+    <script>
+    $(function () {
+        $("#accordion").accordion({
+            collapsible: true
+        });
+    });
+    </script>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" >Home</a>
-        <a href="about.html" class="active" >About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
         <a href="gallery.html">Gallery</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-	
-
     <div class="container">
         <h1>About</h1>
-       
+        
+        <!-- Accordion Section -->
+        <div id="accordion">
+            <h3>About Me</h3>
+            <div>
+                <p>I am a Graduating Student in Gov. Juanito Reyes Remulla SHS who loves playing video games, Drawing, Painting, and sleeping.</p>
+            </div>
+            <h3>section 2</h3>
+            <div>
+                <p></p>
+            </div>
+            <h3>Hobbies</h3></h3>
+            <div>
+                <ul>
+                    <li>Reading</li>
+                    <li>Relapsing</li>
+                    <li></li>
+                </ul>
+            </div>
+            <h3>My dream</h3>
+            <div>
+                <ul>
+                  <li>Study as a BSMT or a Bachelor of Science in Nautical Science</li>
+                  <li>Start my practical onboard training on merchant vessels, tankers, container ships, or cruise ships.</li>
+                  <li>After accumulating the required sea time and passing your competency and licensing examinations</li>
+                  <li>Third Officer → Second Officer → Chief Officer (Chief Mate) → Master (Ship’s Captain).</li>
+                  <li>Functions as the ultimate authority, CEO, and manager of a floating city, balancing maritime safety, vessel operations, and public hospitality.</li>
+                  <li>After saving money for a while, I will build a business and retired to my job.</li>
+                  <li>Peace World</li>
+                </ul>
+
+            
+            </div>
+        </div>
     </div>
 
 </body>
