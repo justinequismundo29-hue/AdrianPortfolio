@@ -8,14 +8,14 @@
     <style>
         #myDrawing{
             border: solid 1px green;
-            background-color: #e3f2fd; /* Light winter sky background */
+            background-color: #e3f2fd;
         }
 
         body {
             margin: 0;
             height: 100vh;
             display: grid;
-            place-items: center; /* Centers on both X and Y axes */
+            place-items: center;
         }
     </style>
 </head>
@@ -25,18 +25,29 @@
     <script>
         const canvas = document.getElementById("myDrawing");
         const ctx = canvas.getContext("2d");
-        const snowX = canvas.width / 2; // Center of the 1000px canvas (500px)
+        const snowX = canvas.width / 2;
 
-        // Bottom snow mound/body
+        // ✨ MERRY CHRISTMAS TEXT - added first so it's behind nothing (above everything)
+        ctx.font = "bold 48px 'Arial', sans-serif";
+        ctx.fillStyle = '#d32f2f';
+        ctx.textAlign = "center";
+        ctx.fillText("Merry", snowX - 150, 85);
+        ctx.fillText("Christmas", snowX + 150, 85);
+
+        // Optional: add a little text shadow for readability
+        ctx.textAlign = "center";
+        ctx.fillStyle = '#d32f2f';
+        ctx.fillText("Merry", snowX - 150, 85);
+        ctx.fillText("Christmas", snowX + 150, 85);
+
         ctx.beginPath();
-        ctx.arc(snowX, 700, 350, 0, Math.PI * 2);
+        ctx.arc(snowX, 750, 350, 0, Math.PI * 2);
         ctx.fillStyle = '#ffffff';
         ctx.fill();
         ctx.strokeStyle = '#cfd8dc';
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Lower torso
         ctx.beginPath();
         ctx.arc(snowX, 370, 75, 0, Math.PI * 2); 
         ctx.fillStyle = '#ffffff'; 
@@ -45,38 +56,32 @@
         ctx.lineWidth = 3;
         ctx.stroke();
 
-        // Middle torso
         ctx.beginPath();
         ctx.arc(snowX, 275, 55, 0, Math.PI * 2); 
         ctx.fillStyle = '#ffffff'; 
         ctx.fill();
         ctx.stroke();
 
-        // Head
         ctx.beginPath();
         ctx.arc(snowX, 200, 38, 0, Math.PI * 2); 
         ctx.fillStyle = '#ffffff'; 
         ctx.fill();
         ctx.stroke();
 
-        // Left Stick Hand
         ctx.beginPath();
         ctx.moveTo(snowX - 45, 265);
         ctx.lineTo(snowX - 100, 240);
-        // Small twigs/fingers on the left hand
         ctx.lineTo(snowX - 115, 225);
         ctx.moveTo(snowX - 100, 240);
         ctx.lineTo(snowX - 115, 250);
-        ctx.strokeStyle = '#5d4037'; // Brown stick color
+        ctx.strokeStyle = '#5d4037';
         ctx.lineWidth = 4;
         ctx.lineCap = 'round';
         ctx.stroke();
 
-        // Right Stick Hand
         ctx.beginPath();
         ctx.moveTo(snowX + 45, 265);
         ctx.lineTo(snowX + 100, 240);
-        // Small twigs/fingers on the right hand
         ctx.lineTo(snowX + 115, 225);
         ctx.moveTo(snowX + 100, 240);
         ctx.lineTo(snowX + 115, 250);
@@ -85,7 +90,6 @@
         ctx.lineCap = 'round';
         ctx.stroke();
 
-        // Buttons
         const buttons = [255, 275, 295];
         buttons.forEach(yCoord => {
             ctx.beginPath();
@@ -101,7 +105,6 @@
         ctx.fillStyle = '#37474f';
         ctx.fill();
 
-        // Carrot nose
         ctx.beginPath();
         ctx.moveTo(snowX, 200);
         ctx.lineTo(snowX + 25, 205);
@@ -112,14 +115,12 @@
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        // Smile
         ctx.beginPath();
         ctx.arc(snowX, 200, 18, 0.1 * Math.PI, 0.9 * Math.PI);
         ctx.strokeStyle = '#37474f';
         ctx.lineWidth = 3;
         ctx.stroke();
 
-        // Hat brim
         ctx.beginPath();
         ctx.moveTo(snowX - 30, 162);
         ctx.lineTo(snowX + 30, 162);
@@ -127,7 +128,6 @@
         ctx.lineWidth = 6;
         ctx.stroke();
 
-        // Hat top
         ctx.beginPath();
         ctx.moveTo(snowX - 18, 162);
         ctx.lineTo(snowX - 18, 115);
@@ -136,6 +136,8 @@
         ctx.fillStyle = '#263238';
         ctx.fill();
         ctx.stroke();
+
+        
     </script>
 </body>
 </html>
