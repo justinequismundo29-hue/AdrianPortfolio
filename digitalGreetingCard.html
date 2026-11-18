@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Greeting Card</title>
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding-top: 20px;
+        }
+        canvas {
+            border: 3px solid cyan;
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy 18th Birthday!</h1>
+    <canvas id="myCanvas" width="500" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(490, 10);
+        ctx.lineTo(490, 390);
+        ctx.lineTo(10, 390);
+        ctx.closePath();
+        ctx.strokeStyle = "cyan";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(250, 120, 40, 0, Math.PI * 2);
+        ctx.fillStyle = "gold";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(150, 180, 25, 0, Math.PI * 2);
+        ctx.fillStyle = "crimson";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(150, 205);
+        ctx.lineTo(150, 280);
+        ctx.strokeStyle = "white";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(350, 180, 25, 0, Math.PI * 2);
+        ctx.fillStyle = "dodgerblue";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(350, 205);
+        ctx.lineTo(350, 280);
+        ctx.strokeStyle = "white";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(210, 260);
+        ctx.lineTo(290, 260);
+        ctx.lineTo(290, 340);
+        ctx.lineTo(210, 340);
+        ctx.closePath();
+        ctx.fillStyle = "limegreen";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(200, 245);
+        ctx.lineTo(300, 245);
+        ctx.lineTo(300, 260);
+        ctx.lineTo(200, 260);
+        ctx.closePath();
+        ctx.fillStyle = "forestgreen";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(100, 80, 6, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(400, 80, 6, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(250, 60, 6, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("next year na gift ko sayo", 250, 370);
+
+    </script>
+</body>
+</html>
