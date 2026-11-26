@@ -1,35 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian Files</title>
-    <style>
-        body { margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; text-align: center; }
-        nav { background-color: #fcc200; display: flex; justify-content: flex-start; padding: 0 20px; }
-        nav a { color: #ffffff; text-decoration: none; padding: 14px 20px; font-size: 16px; }
-        nav a:hover, nav a.active { background-color: #b78727; border-bottom: 3px solid #ffcc00; }
-        .container { max-width: 800px; margin: 60px auto 0 auto; padding: 20px; }
-        h1 { font-size: 36px; margin-bottom: 20px; font-weight: bold; }
-        h2 { font-size: 26px; font-weight: normal; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #fffbf0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .home-intro {
+      max-width: 900px;
+      width: 100%;
+      background: linear-gradient(135deg, #B8860B 0%, #FFC107 100%); 
+      color: #ffffff;
+      padding: 45px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(184, 134, 11, 0.15);
+      border-left: 6px solid #FFD700;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .intro-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .intro-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #FFD700;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .home-intro h2 {
+      font-size: 1.15rem;
+      margin: 0 0 4px 0;
+      color: #FFF3BF;
+    }
+
+    .home-intro h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      color: #ffffff;
+    }
+
+    .home-intro .role-tag {
+      display: inline-block;
+      background-color: #FFD700;
+      color: #5C4600;
+      font-size: 0.95rem;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      letter-spacing: 0.05em;
+    }
+
+    .home-intro p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #FFF8E1;
+      margin: 0;
+    }
+
+    .home-nav-links {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .nav-card {
+      background-color: #ffffff;
+      border: 2px solid #F5E8C8;
+      border-left: 6px solid #FFC107;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      min-height: 90px;
+    }
+
+    .nav-card:hover {
+      border-color: #FFD700;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(184, 134, 11, 0.08);
+      background-color: #FFF9E3;
+    }
+
+    .nav-card h3 {
+      color: #B8860B;
+      font-size: 1.35rem;
+      margin: 0 0 6px 0;
+      font-weight: 600;
+    }
+
+    .nav-card p {
+      color: #8B7355;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .home-intro {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
-	
+  <main>
+    <section class="home-intro">
+      <img src="IMAGE" alt="Justine Adrian B. Quismundo" class="intro-avatar">
+      <div class="intro-content">
+        <h2>Welcome I am</h2>
+        <h1>Justine Adrian B. Quismundo</h1>
+        <div class="role-tag">12 - Cooper | ICT Programming</div>
+        <p>
+          Hello! This digital hub showcases my programming drills, web development projects, and creative works built entirely from scratch using semantic HTML, CSS Flexbox, and JavaScript. Explore the sections to see my technical journey.
+        </p>
+      </div>
+    </section>
 
-    <div class="container">
-        <h1> Justine Adrian B. Quismundo</h1></h1>
-        <h2>Grade 12 - Cooper</h2>
+    <nav class="home-nav-links" aria-label="Quick Links">
+      <a href="Portfolio.html" class="nav-card">
+        <h3>My Portfolio</h3>
+        <p>View all my coding drills and technical tasks</p>
+      </a>
+      <a href="Gallery.html" class="nav-card">
+        <h3>Photo Gallery</h3>
+        <p>Explore snapshots, hobbies, and memories</p>
+      </a>
+      <a href="About.html" class="nav-card">
+        <h3>About Me</h3>
+        <p>Learn more about my background and achievements</p>
+      </a>
+      <a href="Contact.html" class="nav-card">
+        <h3>Contact</h3>
+        <p>Get in touch for collaborations or inquiries</p>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">
+        <h3>Stay Connected!</h3>
+        <p>
+          "Thank you for visiting my website. Connect with me on social media
+          or reach out via email for collaborations and inquiries. Your
+          support and feedback are greatly appreciated."
+        </p>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Me</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/justine.adrian.quismundo" target="_blank">f</a>
+          <a href="https://www.youtube.com/" target="_blank">▶</a>
+          <a href="https://github.com/justinequismundo29-hue" target="_blank">GH</a>
+        </div>
+      </div>
     </div>
+  </footer>
 
 </body>
-</html
+</html>
