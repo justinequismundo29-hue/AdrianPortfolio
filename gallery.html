@@ -28,7 +28,7 @@
             border-bottom: 3px solid #ffcc00; 
         }
         .container { 
-            max-width: 800px; 
+            max-width: 1200px; /* ✅ Wider container */
             margin: 60px auto 0 auto; 
             padding: 20px; 
         }
@@ -51,7 +51,7 @@
         }
 
         #carousel-container {
-            max-width: 800px;
+            max-width: 100%; /* ✅ Full width within container */
             margin: 0 auto;
             border: 2px solid #fcc200;
             background: #000000;
@@ -60,7 +60,7 @@
         #carousel {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 7; /* ✅ Taller frame — more space for photos */
             overflow: hidden;
             background: #000000;
         }
@@ -79,7 +79,8 @@
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* ✅ Changed to "contain" — shows full photo without cropping */
+            background-color: #000; /* ✅ Fills empty space with black */
         }
 
         .carousel-footer {
